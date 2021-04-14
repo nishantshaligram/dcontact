@@ -97,12 +97,13 @@ class DContact_Public {
 		 */
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/dcontact-public.js', array( 'jquery' ), $this->version, false );
+		wp_localize_script( $this->plugin_name, 'ajax_object', array('ajax_url' => admin_url( 'admin-ajax.php' )) );
 
 	}
 
 	public function contac_form_display(){
 		ob_start();
-		require(__FILE__.'../partials/dcontact-public-form');
+		require(dirname(__FILE__).'/partials/dcontact-public-form.php');
 		$html = ob_get_contents();
 		ob_clean();
 		return $html;

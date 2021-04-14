@@ -1,4 +1,4 @@
-<form action="" method="post" id="dcontact" class="dcontact">
+<form method="post" id="dcontact" class="dcontact">
     <div class="form-group">
         <label for="name"></label>
         <input type="text" name="name" id="name">
@@ -19,5 +19,5 @@
         <textarea name="message" id="" cols="1" rows="4" id="message"></textarea>
         <div class="error">Invalid Input</div>
     </div>
-    <button type="submit" id="submit">Submit</button>
 </form>
+<button type="submit" id="dcontact-submit">Submit</button>
