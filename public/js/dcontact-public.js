@@ -30,5 +30,38 @@
 	 */
 	jQuery("#dcontact").submit(function(event){
 		event.preventDefault();
+		var name = jQuery("#name");
+		var email = jQuery("#email");
+		var subject = jQuery("#subject");
+		var message = jQuery("#message");
+
+		if(name.val() == "" || !name.val().match(/^[A-Za-z]+$/)){
+			name.next().show();
+		}else if(email.val() == "" || !email.val().match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)){
+			email.next().show();
+		}else if(subject.val() == ""){
+			subject.next().show();
+		}else if(message.val() == ""){
+			message.next().show();
+		}else{
+			name.next().hide();
+			email.next().hide();
+			subject.next().hide();
+			message.next().hide();
+
+			jQuery.ajax({
+				url: ajax_object.ajax_url,
+				type: "post",
+				data: {action: submit_form,name: name, email: email, subject: subject, message: message},
+				success: function(data){
+					console.log(data);
+				},
+				error: function(data){
+					console.log(data);
+				}
+			});
+		}
+
+		
 	})
 })( jQuery );

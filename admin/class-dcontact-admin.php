@@ -102,7 +102,30 @@ class DContact_Admin {
 	}
 	
 	public function submit_form(){
+		global $wpdb;
+		$table_name = "dcontact";
 
+		$name = $_POST['name'];
+		$email = $_POST['name'];
+		$subject = $_POST['name'];
+		$message = $_POST['name'];
+		if( !empty($name) && !empty($email) && !empty($subject) && !empty($message)){
+			$wpdb->insert( 
+				$table_name, 
+				array( 
+					'name' => $name, 
+					'email' => $email, 
+					'subject' => $subject, 
+					'message' => $message 
+				) 
+			);
+			echo "form submitted.";
+			wp_die();
+		}else {
+			echo "something went wrong.";
+			wp_die();
+		}
+		
 	}
 
 }

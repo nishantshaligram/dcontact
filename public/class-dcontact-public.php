@@ -102,7 +102,7 @@ class DContact_Public {
 
 	public function contac_form_display(){
 		ob_start();
-		require(dirname(__FILE__).'partials/dcontact-public-form');
+		require(__FILE__.'../partials/dcontact-public-form');
 		$html = ob_get_contents();
 		ob_clean();
 		return $html;

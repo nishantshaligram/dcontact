@@ -141,7 +141,7 @@ class DContact_Loader {
 		}
 
 		foreach ( $this->shortcodes as $shortcode ) {
-			add_action( $shortcode['hook'], array( $shortcode['component'], $shortcode['callback'] ), $shortcode['priority'], $shortcode['accepted_args'] );
+			add_shortcode( $shortcode['hook'], array( $shortcode['component'], $shortcode['callback'] ), $shortcode['priority'], $shortcode['accepted_args'] );
 		}
 
 	}

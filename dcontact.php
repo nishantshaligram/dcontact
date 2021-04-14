@@ -36,7 +36,7 @@ define( 'DCONTACT_VERSION', '1.0.0' );
  */
 function activate_dcontact() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-dcontact-activator.php';
-	Plugin_Name_Activator::activate();
+	DContact_Activator::activate();
 }
 
 /**
@@ -45,7 +45,7 @@ function activate_dcontact() {
  */
 function deactivate_dcontact() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-dcontact-deactivator.php';
-	Plugin_Name_Deactivator::deactivate();
+	DContact_Deactivator::deactivate();
 }
 
 register_activation_hook( __FILE__, 'activate_dcontact' );
